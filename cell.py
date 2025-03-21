@@ -42,5 +42,12 @@ class Cell:
             line = Line(p1, p2)
             self._win.draw_line(line, "black")
         
-        
-        
+    def draw_move(self, to_cell: 'Cell', undo: bool = False): 
+        x = (self._x2 - self._x1) / 2
+        y = (self._y2 - self._y1) / 2
+        p1 = Point(x, y) 
+        x = (to_cell._x2 - to_cell._x1) / 2
+        y = (to_cell._y2 - to_cell._y1) / 2
+        p2 = Point(x, y)
+        color = "black" if undo else "red" 
+        self._win.draw_line(Line(p1, p2), color)
