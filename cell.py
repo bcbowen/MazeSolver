@@ -49,5 +49,5 @@ class Cell:
         x = (to_cell._x2 - to_cell._x1) / 2
         y = (to_cell._y2 - to_cell._y1) / 2
         p2 = Point(x, y)
-        color = "black" if undo else "red" 
+        color = "gray" if undo else "red" 
         self._win.draw_line(Line(p1, p2), color)
