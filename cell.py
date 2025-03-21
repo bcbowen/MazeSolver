@@ -4,7 +4,7 @@ from window import Window
 from cell_border import CellBorder
 
 class Cell: 
-    def __init__(self, win: Window): 
+    def __init__(self, win: Window = None): 
         self.border_type = CellBorder.Default
         self._x1 = None 
         self._x2 = None
@@ -13,6 +13,8 @@ class Cell:
         self._win = win
 
     def draw(self, top_left: Point, bottom_right: Point): 
+        if self._win is None: 
+            return
         self._x1 = top_left.x
         self._x2 = bottom_right.x
         self._y1 = top_left.y
