@@ -1,6 +1,7 @@
 import time
 from cell import Cell
 from point import Point
+from cell_border import CellBorder
 
 class Maze: 
     def __init__(
@@ -23,6 +24,7 @@ class Maze:
         self._win = win
         
         self._create_cells()
+        self._break_entrance_and_exit()
 
     def _create_cells(self): 
         for _ in range(0, self._col_count): 
@@ -49,3 +51,13 @@ class Maze:
             return
         self._win.redraw()
         time.sleep(.05)
+
+    def _break_entrance_and_exit(self): 
+        cell : Cell = self._cells[0][0]
+        cell.border_type -= CellBorder.HasLeftWall
+        i, j = 0, 0
+        self._draw_cell(i, j)
+        i, j = self._row_count, self._col_count
+        cell = self._cells[i][j]
+        cell.border_type -= CellBorder.HasRightWall
+        self._draw_cell(i, j)

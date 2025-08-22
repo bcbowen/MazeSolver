@@ -21,28 +21,41 @@ class Cell:
         self._y2 = bottom_right.y
         
         if ((self.border_type & CellBorder.HasLeftWall) == CellBorder.HasLeftWall): 
-            p1 = Point(self._x1, self._y1)
-            p2 = Point(self._x1, self._y2)
-            line = Line(p1, p2)
-            self._win.draw_line(line, "black")
+            color = "black"
+        else: 
+            color = "white"
+
+        p1 = Point(self._x1, self._y1)
+        p2 = Point(self._x1, self._y2)
+        line = Line(p1, p2)
+        self._win.draw_line(line, color)
         
         if ((self.border_type & CellBorder.HasRightWall) == CellBorder.HasRightWall):
-            p1 = Point(self._x2, self._y1)
-            p2 = Point(self._x2, self._y2)
-            line = Line(p1, p2)
-            self._win.draw_line(line, "black")
+            color = "black"
+        else: 
+            color = "white"
+        p1 = Point(self._x2, self._y1)
+        p2 = Point(self._x2, self._y2)
+        line = Line(p1, p2)
+        self._win.draw_line(line, color)
 
         if ((self.border_type & CellBorder.HasTopWall) == CellBorder.HasTopWall): 
-            p1 = Point(self._x1, self._y1)
-            p2 = Point(self._x2, self._y1)
-            line = Line(p1, p2)
-            self._win.draw_line(line, "black")
+            color = "black"
+        else: 
+            color = "white"
+        p1 = Point(self._x1, self._y1)
+        p2 = Point(self._x2, self._y1)
+        line = Line(p1, p2)
+        self._win.draw_line(line, color)
 
         if ((self.border_type & CellBorder.HasBottomWall) == CellBorder.HasBottomWall):
-            p1 = Point(self._x1, self._y2)
-            p2 = Point(self._x2, self._y2)
-            line = Line(p1, p2)
-            self._win.draw_line(line, "black")
+            color = "black"
+        else: 
+            color = "white"
+        p1 = Point(self._x1, self._y2)
+        p2 = Point(self._x2, self._y2)
+        line = Line(p1, p2)
+        self._win.draw_line(line, color)
         
     def draw_move(self, to_cell: 'Cell', undo: bool = False): 
         x = (self._x2 - self._x1) / 2
