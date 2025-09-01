@@ -27,9 +27,9 @@ class Maze:
         self._break_entrance_and_exit()
 
     def _create_cells(self): 
-        for _ in range(0, self._col_count): 
+        for _ in range(0, self._row_count): 
             col_cells = []
-            for _ in range(0, self._row_count): 
+            for _ in range(0, self._col_count): 
                 col_cells.append(Cell(self._win))
             self._cells.append(col_cells)
         
@@ -57,7 +57,7 @@ class Maze:
         cell.border_type -= CellBorder.HasLeftWall
         i, j = 0, 0
         self._draw_cell(i, j)
-        i, j = self._row_count, self._col_count
+        i, j = self._row_count - 1, self._col_count - 1
         cell = self._cells[i][j]
         cell.border_type -= CellBorder.HasRightWall
         self._draw_cell(i, j)

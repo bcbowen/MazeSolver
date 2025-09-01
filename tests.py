@@ -29,7 +29,7 @@ class Tests(unittest.TestCase):
         cell : Cell = m1._cells[i][j]
         self.assertEqual((cell.border_type & CellBorder.HasLeftWall), 0)
 
-        i, j = m1._col_count, m1._row_count
+        i, j = m1._row_count - 1, m1._col_count - 1
         cell = m1._cells[i][j]
         self.assertEqual((cell.border_type * CellBorder.HasRightWall), 0)
 
